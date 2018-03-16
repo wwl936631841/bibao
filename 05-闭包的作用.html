@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <!--
+        1.让函数外可以访问函数内的变量
+        2.延长函数内的变量生命周期
+        3.解决变量污染的问题
+        4.可以控制某些数据的访问权限(包括过滤非法数据)
+    -->
+
+    <script>
+
+        function test() {
+            var obj = {
+
+                age: 16
+            }
+
+            function getAge() {
+
+                console.log(obj.age);
+            }
+
+            function setAge(value) {
+
+                if (value > 0 && value <= 120) {
+                    obj.age = value;
+                }
+            }
+
+            return {
+
+                getAge: getAge,
+                setAge: setAge
+            };
+        }
+        var res = test();
+        //        console.log(res);
+
+        res.setAge(59);
+
+        res.getAge();
+
+
+        //闭包可以让一个数据控制权限，例如让它只能读，不能写
+        /*
+         function person() {
+
+         var obj = {
+
+         name: "刘德华", //我只能让你读，不能让改
+         age: 16
+         }
+
+         //给外界提供一个访问的接口（就是一个函数，也就是我们的闭包）
+         function getName() {
+
+         console.log(obj.name);
+         }
+
+         return getName;
+         }
+
+         var res = person();
+
+         res();
+         */
+
+
+
+        /*
+         //存在一个变量污染，同名变量会覆盖
+         //外面根本访问不了，所以我们可以用闭包
+         function skyKing() {
+
+         var list = ["刘德华", "张学友", "郭富城", "周林林"];
+
+         function inner(){
+
+         console.log(list);
+         }
+
+         return inner;
+         }
+
+         function meiNv() {
+
+         var list = ["赵一波", "陈志远", "邹姐痛", "社会我畅姐"];
+
+         function inner(){
+
+         console.log(list);
+         }
+
+         return inner;
+
+         }
+
+
+         skyKing()();
+         meiNv()();
+         */
+
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>

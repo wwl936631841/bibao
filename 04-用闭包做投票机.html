@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <script>
+
+        function voter() {
+            //默认10张票
+            var ticket = 10;
+
+            function add() {
+
+                ticket++;//拷贝一份到这里来了，拷贝新的实例
+                console.log(ticket);
+            }
+
+            return add;
+        }
+
+//                var res = voter();
+//
+//                res();//11
+//                res();//12
+//                res();//13
+//        voter()();
+//        voter()();
+//        voter()();
+//        voter()();
+//        voter()();
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

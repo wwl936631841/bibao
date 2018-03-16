@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <!--
+        沙盒（沙箱）：代表一个封闭的空间，空间里可以放一些东西，这些东西是安全的
+
+        另外一种模式来实现沙箱，用到了闭包的思想，但是呢，不需要返回函数
+
+
+        要点：1.是一个自执行函数（匿名函数）
+             2.不需要返回了，把外界需要访问的接口加在window对象里就行了
+             3.一般还会加参数
+    -->
+
+    <script>
+
+        (function (w) {
+
+            var obj = {
+                age: 16
+            }
+
+            function getAge() {
+
+                console.log(obj.age);
+            }
+
+            function setAge(value) {
+
+                if (value >= 0 && value <= 150) {
+
+                    obj.age = value;
+                }
+            }
+
+            w.getAge = getAge;
+            w.setAge = setAge;
+
+        })(window);
+
+
+        getAge();//16
+
+        setAge(50);
+
+        getAge();//50
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<ul>
+    <li>隔壁老王1</li>
+    <li>隔壁老王2</li>
+    <li>隔壁老王3</li>
+    <li>隔壁老王4</li>
+    <li>隔壁老王5</li>
+</ul>
+</body>
+</html>
+
+<script>
+
+    var liList = document.getElementsByTagName("li");
+
+    for (var i = 0; i < liList.length; i++) {
+
+        function outer() {
+
+            //把当前的i保存在num里
+            var num = i;
+
+            //声明个闭包函数
+            function inner() {
+
+                alert(num);
+            }
+
+            //返回这个闭包函数
+            return inner;
+        }
+
+        liList[i].onclick = outer();
+    }
+
+
+/*
+    function outer() {
+
+        //把当前的i保存在num里
+        var num = 0;
+
+        //声明个闭包函数
+        function inner() {
+
+            alert(num);//0
+        }
+
+        //返回这个闭包函数
+        return inner;
+    }
+
+    var res = outer();
+    liList[0].onclick = res;
+
+    function outer() {
+
+        //把当前的i保存在num里
+        var num = 1;
+
+        //声明个闭包函数
+        function inner() {
+
+            alert(num);//1
+        }
+
+        //返回这个闭包函数
+        return inner;
+    }
+
+    liList[1].onclick = outer();
+
+
+    function outer() {
+
+        //把当前的i保存在num里
+        var num = 2;
+
+        //声明个闭包函数
+        function inner() {
+
+            alert(num);
+        }
+
+        //返回这个闭包函数
+        return inner;
+    }
+
+    liList[2].onclick = outer();
+  */
+</script>

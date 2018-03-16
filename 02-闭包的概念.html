@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <!--
+        闭包其实就是函数，这个函数可以让函数外界访问函数内部的成员
+
+        闭包理解为沟通函数内部和外部的桥梁
+
+        在JS里简单理解为闭包就是定义在函数内部的一个函数
+
+    闭包作用：
+        1.可以在函数外部读取函数内部成员
+        2.让函数内成员始终存活在内存中
+    -->
+
+    <script>
+
+        /*
+         //局部变量什么销毁：出了它所在的作用域就销毁
+         function f1() {
+
+         var num = 10;
+
+         function f2() {
+
+         console.log(num);
+         }
+
+         return f2;
+         }
+
+
+         var res = f1();//相当于res就是f2
+
+         res();
+         */
+
+        //自执行函数（匿名函数）
+        var res = (function () {
+
+            var num = 10;
+
+            function inner() {
+
+                console.log(num);
+            }
+
+            return inner;
+        }());
+
+
+        res();
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
